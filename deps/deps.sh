@@ -22,12 +22,8 @@ function install() {
     sudo apt update && sudo apt install -y curl wget ansible git aptitude python3-pip
     sudo python3.8 -m pip install -U "docker<=4.1.0" cffi pexpect
 
-    git clone https://github.com/raphaelvrosa/containernet git/containernet
-    cd git/containernet/ansible
-    sudo ansible-playbook -i "localhost," -c local install.yml
-    cd ..
-    sudo python3.8 -m pip install .
-    cd ..
+    git clone https://github.com/containernet/containernet.git
+    sudo ansible-playbook -i "localhost," -c local containernet/ansible/install.yml
 
     # sudo usermod -aG docker $USER
 
