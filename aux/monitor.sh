@@ -20,14 +20,12 @@ function start() {
     # mkdir -p $GRAPHANA_DIR
  
     # -v $INFLUX_DIR:/var/lib/influxdb \
-    docker run -p 8086:8086 \
-        -v influxdb:/var/lib/influxdb \
-        -v influxdb2:/var/lib/influxdb2 \
-        -e DOCKER_INFLUXDB_INIT_USERNAME=${INFLUXDB_USERNAME} \
-        -e DOCKER_INFLUXDB_INIT_PASSWORD=${INFLUXDB_PASSWORD} \
-        -e DOCKER_INFLUXDB_INIT_ORG=Umbra \
-        -e DOCKER_INFLUXDB_INIT_BUCKET=Umbra_bucket \
-      influxdb:1.7
+    docker run -d --name umbra-influxdb \
+        -p 8086:8086 \
+        -e INFLUXDB_DB=${INFLUXDB} \
+        -e INFLUXDB_ADMIN_USER=${INFLUXDB_USERNAME} \
+        -e INFLUXDB_ADMIN_PASSWORD=${INFLUXDB_PASSWORD} \
+	influxdb:1.7
 
     # -v $GRAPHANA_DIR:/var/lib/grafana \
     docker run -d --name umbra-graphana \
