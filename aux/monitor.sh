@@ -27,14 +27,14 @@ function start() {
         -e DOCKER_INFLUXDB_INIT_PASSWORD=${INFLUXDB_PASSWORD} \
         -e DOCKER_INFLUXDB_INIT_ORG=Umbra \
         -e DOCKER_INFLUXDB_INIT_BUCKET=Umbra_bucket \
-      influxdb:latest
+      influxdb:1.7
 
     # -v $GRAPHANA_DIR:/var/lib/grafana \
     docker run -d --name umbra-graphana \
         -p 3000:3000 \
         -e GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME} \
         -e GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD} \
-        grafana/grafana:latest
+        grafana/grafana:7.1
 }
 
 
