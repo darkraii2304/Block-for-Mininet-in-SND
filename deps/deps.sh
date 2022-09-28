@@ -31,8 +31,8 @@ function install() {
     echo "Downloading Images for Monitoring Umbra: influxdb and graphana"
     echo "###################################"
 
-    docker pull influxdb:latest
-    docker pull grafana/grafana:latest
+    docker pull influxdb:1.7
+    docker pull grafana/grafana:7.1.1
 
 }
 

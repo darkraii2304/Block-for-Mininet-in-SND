@@ -34,7 +34,7 @@ function start() {
         -p 3000:3000 \
         -e GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME} \
         -e GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD} \
-        grafana/grafana:7.1
+        grafana/grafana:7.1.1
 }
 
 
