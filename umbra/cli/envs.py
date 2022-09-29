@@ -336,7 +336,7 @@ class Proxy:
         if action == "install":
             # self._workflow_source_files("uninstall")
             clone_cmd = (
-                "cp -R /home/Ubuntu/tmp/umbra /tmp/umbra/source"
+                "cp -R /home/Ubuntu/tmp/umbra/* /tmp/umbra/source"
             )
 
             if self._workflow_source_hasfiles():
